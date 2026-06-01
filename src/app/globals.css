@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* Reset básico para garantir que o fundo do site seja liso e sem margens vazias */
 html,
