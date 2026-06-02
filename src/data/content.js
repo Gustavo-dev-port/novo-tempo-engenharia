@@ -19,7 +19,7 @@ export const colunasHero = [
     titulo: "Tecnologia BIM LOD 300",
     fotos: [
       "/images/carousel/fabrica-00.JPG",
-      "/images/carousel/fabrica-01.png",
+      "/images/carousel/fabrica-01.JPG",
       "/images/carousel/fabrica-02.png",
     ],
   },

@@ -1,25 +1,25 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { colunasHero } from "../data/content"; // Importando os dados do "banco"
+import { colunasHero } from "../data/content";
 
 export default function Hero() {
   const [indiceAtual, setIndiceAtual] = useState(0);
-  const [isHovered, setIsHovered] = useState(false); // Controle para pausar a animação
+  const [isHovered, setIsHovered] = useState(false);
 
-  // Rotação automática (pausa se o usuário estiver com o mouse em cima)
   useEffect(() => {
     if (isHovered) return;
 
     const intervalo = setInterval(() => {
-      setIndiceAtual((prev) => (prev + 1) % 3); // 3 é o número de fotos por coluna
+      setIndiceAtual((prev) => (prev + 1) % 3);
     }, 5000);
     return () => clearInterval(intervalo);
   }, [isHovered]);
 
   return (
+    /* AJUSTE RESPONSIVO DE ALTURA: h-[70vh] no mobile e h-screen apenas do md (desktop) para cima */
     <section
-      className="relative w-full h-screen min-h-150 flex items-center justify-center overflow-hidden bg-[#1f2937]"
+      className="relative w-full h-[70vh] md:h-screen min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden bg-[#1f2937]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -54,8 +54,8 @@ export default function Hero() {
                 </div>
               ))}
 
-              {/* Rótulo Dinâmico */}
-              <div className="absolute bottom-10 left-0 w-full text-center z-30 transition-opacity duration-300 opacity-0 hover:opacity-100">
+              {/* Rótulo Dinâmico - Mantido oculto no mobile para evitar poluição */}
+              <div className="absolute bottom-10 left-0 w-full text-center z-30 transition-opacity duration-300 opacity-0 hover:opacity-100 hidden md:block">
                 <span className="bg-[#006B75]/90 text-white text-xs md:text-sm font-bold uppercase tracking-widest py-2 px-4 rounded shadow-xl">
                   {coluna.titulo}
                 </span>
@@ -65,27 +65,32 @@ export default function Hero() {
         ))}
       </div>
 
-      {/* Escurecimento melhorado para dar foco ao texto */}
-      <div className="absolute inset-0 bg-gray-900/70 z-10 pointer-events-none"></div>
+      {/* Escurecimento controlado */}
+      <div className="absolute inset-0 bg-gray-900/75 z-10 pointer-events-none"></div>
 
-      {/* COPYWRITING CENTRAL */}
-      <div className="relative z-20 text-center px-6 max-w-5xl mx-auto pt-24 pointer-events-none">
-        <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight leading-tight drop-shadow-2xl">
+      {/* COPYWRITING CENTRAL AJUSTADO PARA MOBILE */}
+      {/* Reduzimos o padding-top no mobile (pt-28 para md:pt-24) para equilibrar com a altura menor */}
+      <div className="relative z-20 text-center px-4 md:px-6 max-w-5xl mx-auto pt-28 md:pt-24 pointer-events-none">
+        {/* TIPOGRAFIA RESPONSIVA: text-3xl no mobile escalando para text-7xl no desktop */}
+        <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white mb-4 md:mb-6 tracking-tight leading-tight drop-shadow-2xl">
           Infraestrutura de Alto Padrão para <br className="hidden md:block" />
-          <span className="text-[#006B75] bg-white px-4 py-1 rounded shadow-lg inline-block mt-2 md:mt-4">
+          <span className="text-[#006B75] bg-white px-3 md:px-4 py-1 rounded shadow-lg inline-block mt-2 md:mt-4 text-2xl sm:text-4xl md:text-6xl">
             Grandes Indústrias
           </span>
         </h1>
-        <p className="text-xl md:text-2xl text-gray-200 mb-10 font-medium max-w-3xl mx-auto drop-shadow-md">
+
+        {/* TEXTO DE APOIO RESPONSIVO: text-base no mobile e text-2xl no desktop */}
+        <p className="text-base md:text-2xl text-gray-200 mb-6 md:mb-10 font-medium max-w-3xl mx-auto drop-shadow-md leading-relaxed">
           Projetos de Engenharia Civil com ênfase em estruturas de grande porte.
           Do planejamento FEL 2 à execução em BIM LOD 300.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center pointer-events-auto">
-          <button className="bg-[#006B75] text-white px-8 py-4 rounded font-bold text-lg hover:bg-[#00525a] transition-all shadow-xl uppercase tracking-wide">
+        {/* BOTÕES COMPACTOS NO MOBILE */}
+        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center pointer-events-auto max-w-xs sm:max-w-none mx-auto">
+          <button className="bg-[#006B75] text-white px-6 py-3.5 md:px-8 md:py-4 rounded font-bold text-base md:text-lg hover:bg-[#00525a] transition-all shadow-xl uppercase tracking-wide">
             Apresentação Institucional
           </button>
-          <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded font-bold text-lg hover:bg-white hover:text-[#006B75] transition-all uppercase tracking-wide">
+          <button className="bg-transparent border-2 border-white text-white px-6 py-3.5 md:px-8 md:py-4 rounded font-bold text-base md:text-lg hover:bg-white hover:text-[#006B75] transition-all uppercase tracking-wide backdrop-blur-xs">
             Ver Cases de Sucesso
           </button>
         </div>
