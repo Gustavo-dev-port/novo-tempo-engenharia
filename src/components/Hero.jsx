@@ -19,7 +19,7 @@ export default function Hero() {
   return (
     /* AJUSTE RESPONSIVO DE ALTURA: h-[70vh] no mobile e h-screen apenas do md (desktop) para cima */
     <section
-      className="relative w-full h-[70vh] md:h-screen min-h-[500px] md:min-h-[600px] flex items-center justify-center overflow-hidden bg-[#1f2937]"
+      className="relative w-full h-[70vh] md:h-screen min-h-125 md:min-h-150 flex items-center justify-center overflow-hidden bg-[#1f2937]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
