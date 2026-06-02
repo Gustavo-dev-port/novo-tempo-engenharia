@@ -71,11 +71,11 @@ export default function Hero() {
       {/* COPYWRITING CENTRAL AJUSTADO PARA MOBILE */}
       {/* Reduzimos o padding-top no mobile (pt-28 para md:pt-24) para equilibrar com a altura menor */}
       <div className="relative z-20 text-center px-4 md:px-6 max-w-5xl mx-auto pt-28 md:pt-24 pointer-events-none">
-        {/* TIPOGRAFIA RESPONSIVA: text-3xl no mobile escalando para text-7xl no desktop */}
-        <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold text-white mb-4 md:mb-6 tracking-tight leading-tight drop-shadow-2xl">
-          Infraestrutura de Alto Padrão para <br className="hidden md:block" />
-          <span className="text-[#006B75] bg-white px-3 md:px-4 py-1 rounded shadow-lg inline-block mt-2 md:mt-4 text-2xl sm:text-4xl md:text-6xl">
-            Grandes Indústrias
+        {/* TIPOGRAFIA RESPONSIVA AJUSTADA PARA O NOVO COPY B2B */}
+        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 md:mb-6 tracking-tight leading-tight drop-shadow-2xl">
+          Infraestrutura industrial com <br className="hidden lg:block" />
+          <span className="text-[#006B75] bg-white px-3 md:px-4 py-1 rounded shadow-lg inline-block mt-2 md:mt-4 text-xl sm:text-3xl md:text-4xl lg:text-6xl">
+            Eficiência, Segurança e Logística
           </span>
         </h1>
 
